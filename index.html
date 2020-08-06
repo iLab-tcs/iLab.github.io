@@ -47,7 +47,7 @@
 
         </div>
         <hr>
-        <p> With the rising need for reliable and real-time pose estimation in resource constrained environments such as smartphones, IoT devices, and head mounts, requires a compact and accurate pose estimation framework. To this end, we propose PoseFromGraph, a light weight 3D pose estimation framework that first generates a compact graph representation to estimate the pose of generic objects and subsequently overlays the 3D model utilizing the estimated pose. The inputs to the network are: a graph obtained by skeletonizing the 3D meshes using the prairie-fire analogy and the RGB image, and the output is the 3D pose of the object. The introduction of 3D shapes to the architecture makes our model category-agnostic. Unlike computationally expensive multi-view geometry and point-cloud based representations to estimate pose, our approach uses a message passing network to incorporate local neighborhood information at the same time maintaining global shape property in a graph by optimizing a neighborhood preserving objective. PoseFromGraph surpasses the state-of-the-art pose estimation methods in terms of accuracy achieving 84.43% on the Pascal3D dataset, and at the same time yields 11x and 4x reduction in the space and time complexity respectively. </p>
+        <p> With the rising need for reliable and real-time pose estimation in resource constrained environments such as smartphones, IoT devices, and head mounts, we need an efficient and a compact pose estimation framework. To this end, we propose PoseFromGraph, a light weight 3D pose estimation framework that first generates a compact graph representation to estimate the pose of generic objects and subsequently overlays the 3D model utilizing the estimated pose. The inputs to the network are: a graph obtained by skeletonizing the 3D meshes using the prairie-fire analogy and the RGB image, and the output is the 3D pose of the object. The introduction of 3D shapes to the architecture makes our model category-agnostic. Unlike computationally expensive multi-view geometry and point-cloud based representations to estimate pose, our approach uses a message passing network to incorporate local neighborhood information at the same time maintaining global shape property in a graph by optimizing a neighborhood preserving objective. PoseFromGraph surpasses the state-of-the-art pose estimation methods in terms of accuracy achieving 84.43% on the Pascal3D dataset, and at the same time yields 4x reduction in the space and time complexity. </p>
     </div>
 
     <div class="section">
@@ -73,8 +73,7 @@
 
         <hr>
         <p>
-            We use skeletonisation to reduce the point cloud of any given object to a simple graph. These skeletons provide a compact and expressive shape abstraction to 3D shapes and volume while reducing the memory and computational requirements. The graph pruning reduces the number of nodes in a graph by approximately 40% on PASCAL3D dataset.
-            These graphs are invariant under transformations such as rotations and translations, and devoid of unwanted noise in the graph in the form of parallel edges, loops and short branches.
+            We use skeletonisation to reduce the point cloud of any given object to a simple graph. These skeletons provide a compact and expressive shape abstraction to 3D shapes and volume while reducing the memory and computational requirements. These graphs are invariant under transformations such as rotations and translations, and devoid of unwanted noise in the graph in the form of parallel edges, loops and short branches.
 
 
 
@@ -100,7 +99,7 @@
         <hr>
         <p>
             We perform our evaluation on the Pascal3D+ dataset.
-            We achieve state-of-the-art accuracy while reducing the memory and time requirements by 35% and 77% respectively. 
+            We achieve state-of-the-art accuracy while reducing the memory and time requirements by approximately 4 times. 
         </p>
 
 	    <div class="row justify-content-center">
