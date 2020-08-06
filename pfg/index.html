@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description"
+          content="PoseFromGraph: Compact 3-D Pose Estimation using Graphs">
+    <meta name="author" content="Meghal Dani,
+                                 Additya Popli,
+                                 Ramya Hebbalaguppe">
+
+    <title>PoseFromGraph: Compact 3-D Pose Estimation using Graphs</title>
+    <!-- Bootstrap core CSS -->
+    <!--link href="bootstrap.min.css" rel="stylesheet"-->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <!-- Custom styles for this template -->
+    <link href="offcanvas.css" rel="stylesheet">
+    <!--    <link rel="icon" href="img/favicon.gif" type="image/gif">-->
+</head>
+
+<body>
+<div class="jumbotron jumbotron-fluid">
+    <div class="container"></div>
+    <h2>PoseFromGraph: Compact 3-D Pose Estimation using Graphs</h2>
+<!--            <p class="abstract">An interpretable, data-efficient, and scalable neural scene representation.</p>-->
+    <hr>
+    <p class="authors">
+        <a href="https://scholar.google.co.in/citations?user=Hxp_B7UAAAAJ&hl=en"> Meghal Dani</a>,
+        <a href="https://scholar.google.com/citations?user=Y2OEszYAAAAJ&hl=en"> Additya Popli</a>,
+        <a href="https://scholar.google.co.in/citations?user=IJjnjZIAAAAJ&hl=en"> Ramya Hebbalaguppe</a></br>
+    </p>
+<!--     <div class="btn-group" role="group" aria-label="Top menu">
+        <a class="btn btn-primary" href="PoseFromGraph.pdf">Paper</a>
+        <a class="btn btn-primary" href="PoseFromGraph-supplementary.pdf">Supplementary Material</a>
+    </div>
+ --></div>
+
+<div class="container">
+
+
+    <div class="section">
+        <div class="vcontainer">
+			<iframe class='video' src="https://www.youtube.com/embed/zaReuHVDgDs" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+        </div>
+        <hr>
+        <p> With the rising need for reliable and real-time pose estimation in resource constrained environments such as smartphones, IoT devices, and head mounts, requires a compact and accurate pose estimation framework. To this end, we propose PoseFromGraph, a light weight 3D pose estimation framework that first generates a compact graph representation to estimate the pose of generic objects and subsequently overlays the 3D model utilizing the estimated pose. The inputs to the network are: a graph obtained by skeletonizing the 3D meshes using the prairie-fire analogy and the RGB image, and the output is the 3D pose of the object. The introduction of 3D shapes to the architecture makes our model category-agnostic. Unlike computationally expensive multi-view geometry and point-cloud based representations to estimate pose, our approach uses a message passing network to incorporate local neighborhood information at the same time maintaining global shape property in a graph by optimizing a neighborhood preserving objective. PoseFromGraph surpasses the state-of-the-art pose estimation methods in terms of accuracy achieving 84.43% on the Pascal3D dataset, and at the same time yields 11x and 4x reduction in the space and time complexity respectively. </p>
+    </div>
+
+    <div class="section">
+        <h2>Representing Shape</h2>
+        <hr>
+
+	    <div class="row justify-content-center">
+	        <div class="row justify-content-center">
+	            <div class="col-sm-3">
+	                <img src="images/boat.png" style="width:100%">
+	            </div>
+	            <div class="col-sm-3">
+	                <img src="images/boat_graph.png" style="width:100%">
+	            </div>
+	            <div class="col-sm-3">
+	                <img src="images/armadillo.png" style="width:100%">
+	            </div>
+	            <div class="col-sm-3">
+	                <img src="images/armadillo_graph.png" style="width:100%">
+	            </div>
+	    	</div>
+	    </div>
+
+        <hr>
+        <p>
+            We use skeletonisation to reduce the point cloud of any given object to a simple graph. These skeletons provide a compact and expressive shape abstraction to 3D shapes and volume while reducing the memory and computational requirements. The graph pruning reduces the number of nodes in a graph by approximately 40% on PASCAL3D dataset.
+            These graphs are invariant under transformations such as rotations and translations, and devoid of unwanted noise in the graph in the form of parallel edges, loops and short branches.
+
+
+
+
+    <div class="section">
+        <h2>Pose Estimation</h2> 
+        <br>
+        <hr>
+        <div class="row align-items-center">
+            <div class="col justify-content-center text-center">
+                <img src="images/architecture.png" style="width:100%">
+            </div>
+        </div>
+        <hr>
+        <br>
+        <p>
+        	We use two different feature extractors: (i) Convolutional Network to extract features from the given RGB image and (ii) Graph Neural Network or Message Passing Network to extract shape feature from the given graph. These features are used to predict the 3-D pose of the object which is finally fed to a registration module which aligns the CAD model onto the image.
+        </p>
+    </div>
+
+    <div class="section">
+        <h2>Evaluation</h2>
+        <hr>
+        <p>
+            We perform our evaluation on the Pascal3D+ dataset.
+            We achieve state-of-the-art accuracy while reducing the memory and time requirements by 35% and 77% respectively. 
+        </p>
+
+	    <div class="row justify-content-center">
+	        <div class="row justify-content-left">
+	            <div class="justify-content-left">
+	                <img src="images/results.png" style="width:100%">
+	            </div>
+	    	</div>
+	    </div>
+    </div>
+
+
+    <div class="section">
+        <h2>Paper</h2>
+        <hr>
+        <div>
+            <div class="list-group">
+            	<center> Coming soon! </center>
+<!--                 <a href="PoseFromGraph.pdf"
+                   class="list-group-item">
+                    <img src="images/paper_thumbnail.png" style="width:100%; margin-right:-20px; margin-top:-10px;">
+                </a>
+ -->            </div>
+        </div>
+    </div>
+
+    <div class="section">
+        <h2>Bibtex</h2>
+        <hr>
+        <div class="bibtexsection">
+            @inproceedings{dani2020posefromgraph,
+                author = {Dani, Meghal
+                          and Popli, Additya 
+                          and Hebbalaguppe, Ramya},
+                title = {PoseFromGraph: Compact 3-D Pose Estimation using Graphs},
+                booktitle = {arXiv},
+                year = {2020}
+            }
+        </div>
+    </div>
+
+    <hr>
+
+</div>
+
+
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+        crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+        crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
+        integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
+        crossorigin="anonymous"></script>
+
+</body>
+</html>
